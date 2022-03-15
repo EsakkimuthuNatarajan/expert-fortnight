@@ -15,7 +15,7 @@ class WebserverStack(cdk.Stack):
         except OSError:
             print("Unable to find the user data file")
 
-        vpc = _ec2.Vpc.from_lookup(self, "ImportedVPC", is_default= True)
+        vpc = _ec2.Vpc.from_lookup(self, "ImportedVPC", is_default= True, vpc_id= "vpc-8117cffc")
 
         server = _ec2.Instance(self,
         "webserver",
