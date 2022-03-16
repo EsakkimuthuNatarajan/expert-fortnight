@@ -9,6 +9,6 @@ from custom_resources.custom_vpc import TestVpcStack
 
 app = cdk.App()
 vpc_Stack = TestVpcStack(app, "Vpc-Stack", env=cdk.Environment(account='275239396717', region='us-west-2'))
-ec2_Stack = WebserverStack(app, "WebServer-Stack", env=cdk.Environment(account='275239396717', region='us-west-2'))
+ec2_Stack = WebserverStack(app, "WebServer-Stack", vpc = vpc_Stack.vpc, env=cdk.Environment(account='275239396717', region='us-west-2'))
 
 app.synth()

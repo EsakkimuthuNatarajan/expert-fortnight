@@ -6,7 +6,7 @@ from aws_cdk import (
 
 class WebserverStack(cdk.Stack):
 
-    def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
+    def __init__(self, scope: cdk.Construct, construct_id: str, vpc, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
         try:
@@ -15,7 +15,7 @@ class WebserverStack(cdk.Stack):
         except OSError:
             print("Unable to find the user data file")
 
-        vpc = _ec2.Vpc.from_lookup(self, "ImportedVPC", vpc_id= "vpc-6c654b14")
+        # vpc = _ec2.Vpc.from_lookup(self, "ImportedVPC", vpc_id= "vpc-6c654b14")
 
         server = _ec2.Instance(self,
         "webserver",
