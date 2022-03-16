@@ -23,7 +23,7 @@ class WebserverStack(cdk.Stack):
         instance_name = "TestInstance",
         machine_image= _ec2.MachineImage.generic_linux({"us-west-2": "ami-0359b3157f016ae46"}),
         vpc= vpc,
-        # vpc_subnets=_ec2.SubnetSelection(subnet_type=_ec2.SubnetType.PUBLIC),
+        vpc_subnets=_ec2.SubnetSelection(subnet_type=_ec2.SubnetType.PUBLIC),
         key_name = "chrisgrey",
         user_data= _ec2.UserData.custom(user_data)  
         )
