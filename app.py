@@ -7,6 +7,6 @@ from custom_resources.custom_ec2 import WebserverStack
 # env = cdk.Environment( region= "us-east-1", account= "275239396717")
 
 app = cdk.App()
-ec2_Stack = WebserverStack(app, "WebServer-Stack", env=cdk.Environment(account='275239396717', region='us-east-1'))
+ec2_Stack = WebserverStack(app, "WebServer-Stack", env=cdk.Environment(account='275239396717', region='us-west-2'))
 
 app.synth()

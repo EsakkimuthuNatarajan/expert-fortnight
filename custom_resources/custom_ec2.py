@@ -15,15 +15,15 @@ class WebserverStack(cdk.Stack):
         except OSError:
             print("Unable to find the user data file")
 
-        vpc = _ec2.Vpc.from_lookup(self, "ImportedVPC", is_default= True, vpc_id= "vpc-8117cffc")
+        vpc = _ec2.Vpc.from_lookup(self, "ImportedVPC", vpc_id= "vpc-6c654b14")
 
         server = _ec2.Instance(self,
         "webserver",
         instance_type = _ec2.InstanceType(instance_type_identifier="t2.micro"),
         instance_name = "TestInstance",
-        machine_image= _ec2.MachineImage.generic_linux({"us-east-1": "ami-0e1d30f2c40c4c701"}),
+        machine_image= _ec2.MachineImage.generic_linux({"us-west-2": "ami-0359b3157f016ae46"}),
         vpc= vpc,
-        vpc_subnets= _ec2.SubnetSelection(subnet_type= _ec2.SubnetType.PUBLIC),
+        # vpc_subnets=_ec2.SubnetSelection(subnet_type=_ec2.SubnetType.PUBLIC),
         key_name = "chrisgrey",
         user_data= _ec2.UserData.custom(user_data)  
         )
